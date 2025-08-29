@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculation Results</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculation Results</h1>
+            <p>Metrics for uploaded file: <strong>{{ results.filename }}</strong></p>
+        </header>
+
+        <main>
+            <div class="card results-card">
+                <h2>Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">PSNR</span>
+                        <span class="metric-value">{{ results.psnr }} dB</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">SNR</span>
+                        <span class="metric-value">{{ results.snr }} dB</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">logSNR</span>
+                        <span class="metric-value">{{ results.logsnr }} dB</span>
+                    </div>
+                </div>
+            </div>
+
+            <a href="{{ url_for('index') }}" class="back-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <span>Calculate Another</span>
+            </a>
+        </main>
+
+        <footer>
+            <p>Built with Flask &amp; Astropy. A portfolio project.</p>
+        </footer>
+    </div>
+</body>
+</html>

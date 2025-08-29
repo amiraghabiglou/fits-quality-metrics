@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FITS Image Quality Metrics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FITS Image Quality Calculator</h1>
+            <p>Upload your reconstructed FITS image to compare it against the ground truth and calculate PSNR & SNR metrics.</p>
+        </header>
+
+        <main>
+            <!-- Flash messages display -->
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="flash-messages">
+                  {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            <div class="card">
+                <h2>Upload Prediction File</h2>
+                <form action="{{ url_for('calculate_metrics') }}" method="post" enctype="multipart/form-data" id="upload-form">
+                    <div class="file-input-wrapper">
+                        <input type="file" name="pred_file" id="pred_file" class="file-input" accept=".fits" required>
+                        <label for="pred_file" class="file-input-label">
+                            <span id="file-name">Choose a .fits file...</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cpu"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+                        <span>Calculate Metrics</span>
+                    </button>
+                </form>
+            </div>
+             <div class="info-box">
+                <p>The ground truth image and an example prediction file are available in the <a href="https://github.com/amiraghabiglou/fits-quality-metrics/tree/main/data" target="_blank" rel="noopener noreferrer">/data folder on GitHub</a>.</p>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with Flask &amp; Astropy. A portfolio project.</p>
+        </footer>
+    </div>
+    <script>
+        document.getElementById('pred_file').addEventListener('change', function() {
+            var fileName = this.files[0] ? this.files[0].name : 'Choose a .fits file...';
+            document.getElementById('file-name').textContent = fileName;
+        });
+    </script>
+</body>
+</html>

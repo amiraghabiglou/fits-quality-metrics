@@ -47,21 +47,20 @@ You can run the project locally or with Docker.
     ```bash
     git clone https://github.com/amiraghabiglou/fits-quality-metrics.git
     cd fits-quality-metrics
-
+    ```
 
 2. **Create and activate a virtual environment**
 
-# macOS/Linux  
+**macOS/Linux**
 
     python3 -m venv venv
     source venv/bin/activate
-    
 
-# Windows
+**Windows**
 
     python -m venv venv
     .\venv\Scripts\activate
-
+    
 3. **Install dependencies**
     ```bash
     pip install -r requirements.txt

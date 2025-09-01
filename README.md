@@ -44,44 +44,48 @@ You can run the project locally or with Docker.
 ### 🔹 Local Installation  
 
 1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/amiraghabiglou/fits-quality-metrics.git
-   cd fits-quality-metrics
+    ```bash
+    git clone https://github.com/amiraghabiglou/fits-quality-metrics.git
+    cd fits-quality-metrics
 
-Create and activate a virtual environment
 
-# macOS/Linux
-python3 -m venv venv
-source venv/bin/activate
+2. **Create and activate a virtual environment**
+
+# macOS/Linux  
+
+    python3 -m venv venv
+    source venv/bin/activate
+    
 
 # Windows
-python -m venv venv
-.\venv\Scripts\activate
+
+    python -m venv venv
+    .\venv\Scripts\activate
+
+3. **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
 
 
-Install dependencies
-
-pip install -r requirements.txt
-
-
-Prepare your data
+4. **Prepare your data**
 
 Place your ground-truth FITS file in /data and name it:
 
-ground_truth.fits
+    ground_truth.fits
 
 
 Example ground_truth.fits and example_prediction.fits are already provided.
 
-Run the Flask app
+5. **Run the Flask app**
+    ```bash
+    flask run
 
-flask run
 
+6. **Open in browser**
 
-Open in browser
 http://127.0.0.1:5000
 
-🔹 Docker Usage
+🔹 **Docker Usage**
 
 Build the image
 
@@ -94,6 +98,7 @@ docker run -p 5000:5000 fits-metrics-app
 
 
 Open in browser
+
 http://127.0.0.1:5000
 
 📖 Usage
@@ -107,6 +112,7 @@ Click "Calculate Metrics".
 View calculated PSNR, SNR, and logSNR values on the results page.
 
 📂 Project Structure
+```bash
 fits-quality-metrics
 ├── app.py              # Main Flask application logic
 ├── requirements.txt    # Python package dependencies
@@ -122,8 +128,8 @@ fits-quality-metrics
 └── /templates/         # HTML templates
     ├── index.html      # Upload page
     └── results.html    # Results display
-
-🙌 Acknowledgements
+```
+🙌 **Acknowledgements**
 
 Astropy
  for astronomical FITS file handling
@@ -131,11 +137,4 @@ Astropy
 scikit-image
  for image quality metrics
 
-The R2D2 imaging algorithm research team
-
-
----
-
-✅ You can paste this directly into your `README.md`.  
-
-Do you also want me to add a **"Screenshots" placeholder section** (with Markdown image tags) so you can drop in screenshots of the UI later?
+The [BASPLib](https://basp-group.github.io/BASPLib/) for R2D2 imaging algorithm

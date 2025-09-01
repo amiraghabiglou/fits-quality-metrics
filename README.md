@@ -101,7 +101,7 @@ Open in browser
 
 http://127.0.0.1:5000
 
-📖 Usage
+📖 **Usage**
 
 Open the web application in your browser.
 
@@ -111,7 +111,7 @@ Click "Calculate Metrics".
 
 View calculated PSNR, SNR, and logSNR values on the results page.
 
-📂 Project Structure
+📂 **Project Structure**
 ```bash
 fits-quality-metrics
 ├── app.py              # Main Flask application logic

@@ -1,101 +1,141 @@
-FITS Image Quality Metrics Calculator
-A simple yet powerful Flask web application to calculate Peak Signal-to-Noise Ratio (PSNR) and Signal-to-Noise Ratio (SNR) and logSNR for astronomical FITS images.
+# ⭐ FITS Image Quality Metrics Calculator  
 
-This tool allows a user to upload a reconstructed (prediction) FITS image, which is then compared against a ground-truth image to evaluate the quality of the reconstruction.
+A lightweight yet powerful **Flask web application** for calculating **Peak Signal-to-Noise Ratio (PSNR)**, **Signal-to-Noise Ratio (SNR)**, and **logSNR** for astronomical **FITS images**.  
 
-About The Project
-This project was inspired by the need for a quick and accessible tool to evaluate the output of Deep Neural Networks (DNNs) used in radio-interferometric imaging. The example prediction file provided in the /data directory is an output from the R2D2$_{\mathcal{A}_2,\mathcal{T}_2}$ algorithm, as published in the paper:
+This tool allows users to upload a reconstructed (prediction) FITS image and compare it against a ground-truth image, providing a quick assessment of reconstruction quality.  
 
-Towards a robust R2D2 paradigm for radio-interferometric imaging: revisiting DNN training and architecture
+---
 
-This project serves as a practical demonstration of building a web-based interface for a scientific computing task.
+## 🚀 About The Project  
 
-Built With
-Flask
+This project was motivated by the need for a simple and accessible tool to evaluate the performance of **Deep Neural Networks (DNNs)** in radio-interferometric imaging.  
 
-NumPy
+An example prediction file is included in the `/data` directory. It is the output of the  
+![equation](https://latex.codecogs.com/svg.latex?R2D2_{\mathcal{A}_2,\mathcal{T}_2}) algorithm, as described in the paper:  
 
-scikit-image
+> _Towards a robust R2D2 paradigm for radio-interferometric imaging: revisiting DNN training and architecture_  
 
-Astropy
+This repository also demonstrates how to build a **web-based interface for scientific computing tasks**.  
 
-Docker
+---
 
-Getting Started
-You can run this project locally by following the setup instructions or by using the provided Docker container.
+## 🛠️ Built With  
 
-Prerequisites
-Python 3.7+
+- [Flask](https://flask.palletsprojects.com/)  
+- [NumPy](https://numpy.org/)  
+- [scikit-image](https://scikit-image.org/)  
+- [Astropy](https://www.astropy.org/)  
+- [Docker](https://www.docker.com/)  
 
-pip
+---
 
-Local Installation
-Clone the repo
+## ⚡ Getting Started  
 
-git clone [https://github.com/amiraghabiglou/fits-quality-metrics.git](https://github.com/amiraghabiglou/fits-quality-metrics.git)
-cd fits-quality-metrics
+You can run the project locally or with Docker.  
+
+### ✅ Prerequisites  
+
+- Python **3.7+**  
+- `pip` package manager  
+- (Optional) Docker  
+
+---
+
+### 🔹 Local Installation  
+
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/amiraghabiglou/fits-quality-metrics.git
+   cd fits-quality-metrics
 
 Create and activate a virtual environment
 
-# For macOS/Linux
+# macOS/Linux
 python3 -m venv venv
 source venv/bin/activate
 
-# For Windows
+# Windows
 python -m venv venv
 .\venv\Scripts\activate
+
 
 Install dependencies
 
 pip install -r requirements.txt
 
-Place your data
 
-Add your ground-truth FITS file to the /data directory and name it ground_truth.fits.
+Prepare your data
 
-An example ground truth and prediction file are already provided.
+Place your ground-truth FITS file in /data and name it:
 
-Run the app
+ground_truth.fits
+
+
+Example ground_truth.fits and example_prediction.fits are already provided.
+
+Run the Flask app
 
 flask run
 
-Navigate to http://127.0.0.1:5000 in your web browser.
 
-Docker Usage
-If you have Docker installed, you can easily build and run the application in a container.
+Open in browser
+http://127.0.0.1:5000
 
-Build the Docker image
+🔹 Docker Usage
+
+Build the image
 
 docker build -t fits-metrics-app .
 
-Run the Docker container
+
+Run the container
 
 docker run -p 5000:5000 fits-metrics-app
 
-Navigate to http://127.0.0.1:5000 in your web browser.
 
-Usage
+Open in browser
+http://127.0.0.1:5000
+
+📖 Usage
+
 Open the web application in your browser.
 
-Click the "Choose a .fits file..." button to select your prediction FITS file.
+Click "Choose a .fits file..." to upload your prediction FITS file.
 
 Click "Calculate Metrics".
 
-The results page will display the calculated PSNR and SNR values.
+View calculated PSNR, SNR, and logSNR values on the results page.
 
-Project Structure
-/fits-quality-metrics
+📂 Project Structure
+fits-quality-metrics
 ├── app.py              # Main Flask application logic
 ├── requirements.txt    # Python package dependencies
-├── Dockerfile          # Instructions for building the Docker image
-├── .dockerignore       # Files to exclude from the Docker image
-├── .gitignore          # Files to ignore for Git
+├── Dockerfile          # Instructions for building Docker image
+├── .dockerignore       # Files to exclude from Docker builds
+├── .gitignore          # Git ignore rules
 ├── /data/              # FITS data files
 │   ├── ground_truth.fits
 │   └── example_prediction.fits
 ├── /static/            # Static assets
-│   └── /css/
-│       └── style.css   # Stylesheet for the web interface
+│   └── css/
+│       └── style.css   # Web app styles
 └── /templates/         # HTML templates
-    ├── index.html      # Main upload page
-    └── results.html    # Page to display results
+    ├── index.html      # Upload page
+    └── results.html    # Results display
+
+🙌 Acknowledgements
+
+Astropy
+ for astronomical FITS file handling
+
+scikit-image
+ for image quality metrics
+
+The R2D2 imaging algorithm research team
+
+
+---
+
+✅ You can paste this directly into your `README.md`.  
+
+Do you also want me to add a **"Screenshots" placeholder section** (with Markdown image tags) so you can drop in screenshots of the UI later?

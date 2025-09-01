@@ -128,8 +128,8 @@ fits-quality-metrics
 └── /templates/         # HTML templates
     ├── index.html      # Upload page
     └── results.html    # Results display
-
-🙌 Acknowledgements
+```
+🙌 **Acknowledgements**
 
 Astropy
  for astronomical FITS file handling
@@ -137,11 +137,4 @@ Astropy
 scikit-image
  for image quality metrics
 
-The BASPLib for R2D2 imaging algorithm
-
-
----
-
-✅ You can paste this directly into your `README.md`.  
-
-Do you also want me to add a **"Screenshots" placeholder section** (with Markdown image tags) so you can drop in screenshots of the UI later?
+The [BASPLib](https://basp-group.github.io/BASPLib/) for R2D2 imaging algorithm
